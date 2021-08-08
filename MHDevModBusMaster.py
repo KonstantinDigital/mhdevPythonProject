@@ -23,8 +23,7 @@ class MainWindow(tk.Tk):
         self.scroll_shift = -587
         # инициализация переменных для подключения modbus
         self.number = None
-        self.ser = serial.Serial(parity = serial.PARITY_NONE, stopbits = 1, bytesize = 8, timeout = 1)
-        # parity = serial.PARITY_NONE, stopbits = 1, bytesize = 8, timeout = 1
+        self.ser = serial.Serial(parity=serial.PARITY_NONE, stopbits=1, bytesize=8, timeout=1)
         # инициализация переменных для очереди
         self.q = Queue()
         self.r_lock = RLock()
