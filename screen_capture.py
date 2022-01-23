@@ -27,7 +27,6 @@ class Capturer:
                 np_arr,
                 cv2.COLOR_BGR2RGB
             )
-
             self.vid.write(frame)
 
 
