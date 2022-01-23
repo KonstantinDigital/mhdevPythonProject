@@ -22,10 +22,12 @@ class Capturer:
     def mainloop(self):
         while True:
             img = pyautogui.screenshot()
+            np_arr = np.array(img)
             frame = cv2.cvtColor(
-                np.array(img),
+                np_arr,
                 cv2.COLOR_BGR2RGB
             )
+            print(np_arr.size)
             self.vid.write(frame)
 
 
