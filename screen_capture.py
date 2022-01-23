@@ -6,7 +6,6 @@ import pyautogui
 class Capturer:
 
     def __init__(self, width, height, fps):
-
         self.width = width
         self.height = height
         self.fps = fps
