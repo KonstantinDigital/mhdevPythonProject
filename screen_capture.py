@@ -9,6 +9,7 @@ class Capturer:
         self.width = width
         self.height = height
         self.fps = fps
+        self.old_img = pyautogui.screenshot()
         self.vid = cv2.VideoWriter(
             'output.avi',
             cv2.VideoWriter_fourcc(*'XVID'),
@@ -21,12 +22,20 @@ class Capturer:
 
     def mainloop(self):
         while True:
-            img = pyautogui.screenshot()
-            np_arr = np.array(img)
-            frame = cv2.cvtColor(
-                np_arr,
-                cv2.COLOR_BGR2RGB
-            )
+            new_img = pyautogui.screenshot()
+            if new_img != self.old_img:
+                self.old_img = new_img
+                np_arr = np.array(self.old_img)
+                frame = cv2.cvtColor(
+                    np_arr,
+                    cv2.COLOR_BGR2RGB
+                )
+            else:
+                np_arr = np.array(self.old_img)
+                frame = cv2.cvtColor(
+                    np_arr,
+                    cv2.COLOR_BGR2RGB
+                )
             self.vid.write(frame)
 
 
@@ -39,4 +48,5 @@ if __name__ == '__main__':
         print('TO EXIT PRESS Ctrl+C')
         capt.mainloop()
     except KeyboardInterrupt:
+        capt.vid.release()
         input('Successfully')
