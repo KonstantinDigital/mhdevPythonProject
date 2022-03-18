@@ -23,6 +23,7 @@ WORK = True
 
 
 def main():
+    
     if len(sys.argv) > 1:
         thread1 = Thread(target=wait_exit)
         thread1.start()
