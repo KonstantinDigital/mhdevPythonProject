@@ -22,8 +22,11 @@ import os
 # python MHDevAutoClicker.py p,0.5 m,1335,124,0.5 lc m,1462,901 lc m,784,506 lc m,1635,16 lc m,999,125 lc 300
 
 
-def edit_cmds():
-    global CMDS
+def cmds_move_to():
+    global CMDS, is_first
+    if is_first:
+        is_first = False
+        CMDS = ""
 
 
 def start_thread():
@@ -106,6 +109,7 @@ def command_parser():
             cnt_cycle -= 1
 
 
+is_first = True
 CMDS = "0"
 root = tk.Tk()
 
