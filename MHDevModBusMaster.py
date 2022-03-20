@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# 2021 MHDEv
+# This program reads and writes data from devices using modbus protocol
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter.font import Font

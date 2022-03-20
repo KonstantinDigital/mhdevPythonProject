@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# 2021 MHDEv
+# This program searches for duplicate files in the specified directory
+# by comparing their hashes and saves the results to a file
+
 import os
 from datetime import datetime
 from time import time

@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# 2020 MHDev
+# This program converts numbers from one number system to another.
+
 import tkinter
 from tkinter import *
 from tkinter import scrolledtext

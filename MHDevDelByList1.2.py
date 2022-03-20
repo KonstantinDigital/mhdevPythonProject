@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# 2021 MHDEv
+# This program deletes files from the computer according to the prepared list
+
 import os
 from datetime import datetime
 from time import time

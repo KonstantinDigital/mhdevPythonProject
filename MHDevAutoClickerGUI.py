@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# MHDev 2022
+# GUI version of MHDevAutoClicker
 
 import pyautogui as pag
 import tkinter as tk

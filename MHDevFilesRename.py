@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# 2021 MHDEv
+# This program renames files in the specified directory by deleting the specified
+# number of characters from the beginning of the file name
+
 import os
 
 

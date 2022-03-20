@@ -1,39 +1,29 @@
 #!/usr/bin/env python3
+# 2022 MHDEv
+# This program automates mouse and keyboard actions on the screen
 
 import pyautogui as pag
-import tkinter as tk
 import sys
 import keyboard
 from threading import Thread
-import os
-
-# pag.position() - текущая позиция мыши
-# pag.click() - клик левой кнопкой мыши
-# pag.click(button="right") - клик правой кнопкой мыши
-# pag.doubleClick() - двойной клик
-# pag.moveTo(x, y, sec) - перемещение мыши за сколько секунд
-# pag.dragTo(300, 400, 2, button="left") - перетащить мышь
-# pag.press("enter") - нажать Enter
-# pag.hotkey("ctrl", "c") - сочетание нажатия клавиш
-# pag.PAUSE = 1 - одна инструкция каждую секунду
-# pag.write("default", interval=0.3) - ввод с клавиатуры
-# python MHDevAutoClicker.py p,0.5 m,1335,124,0.5 lc m,1462,901 lc m,784,506 lc m,1635,16 lc m,999,125 lc 300
-
-WORK = True
 
 
 def main():
-    
     if len(sys.argv) > 1:
         thread1 = Thread(target=wait_exit)
         thread1.start()
-        thread1.join(2)
+        thread1.join(1)
 
         thread2 = Thread(target=command_parser, args=sys.argv[1:], daemon=True)
         thread2.start()
 
         thread3 = Thread(target=print_position, daemon=True)
         thread3.start()
+    elif len(sys.argv) == 1 or sys.argv[1] in {"-h", "--help"}:
+        print("Usage: python MHDevAutoClicker.py p,0.5[pause between actions (default 1 sec)] "
+              "m,1335,124,0.5[move to x, y, action time (default 1 sec)] lc[left click] m,1462,901 lc "
+              "300[number of cycles (0 = infinite times)]\nTo STOP and EXIT programm press Esc")
+        sys.exit()
 
 
 def print_position():
@@ -45,11 +35,7 @@ def print_position():
 
 
 def wait_exit():
-    # global WORK
-    # while WORK:
-    #     if keyboard.is_pressed("esc"):
-    #         sys.exit()
-    # sys.exit()
+    print("Press Esc to Exit programm")
     keyboard.wait("esc")
     sys.exit()
 
