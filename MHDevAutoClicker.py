@@ -41,7 +41,6 @@ def wait_exit():
 
 
 def command_parser(*cmds):
-    global WORK
     pag.PAUSE = 1
     cnt_cycle = int(cmds[-1])
     if cnt_cycle == 0:
@@ -79,7 +78,6 @@ def command_parser(*cmds):
                 elif cmd[0] == "e":
                     pag.press("enter")
             cnt_cycle -= 1
-        WORK = False
 
 
 if __name__ == '__main__':
