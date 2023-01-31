@@ -243,7 +243,7 @@ class Register(Thread):
         self.obj_count = obj_count
         self.shift = shift
         self.old_mask = 0
-        self.state = "disable"
+        self.state = "disabled"
         self.label_frame = tk.LabelFrame(self.frame, height=442, width=170)
         self.master = mb_rtu.RtuMaster(root.ser)
         # инициализируем переменные битовой маски
@@ -337,14 +337,14 @@ class Register(Thread):
         self.register_label.grid(row=1, column=0, columnspan=2, sticky=tk.W)
         self.memory_label.grid(row=2, column=0, columnspan=2, sticky=tk.W)
         self.read_but.grid(row=3, column=0, sticky=tk.W)
-        self.radio_read.set(0)
+        self.radio_read.set(False)
         self.read_radio_but.grid(row=4, column=0, sticky=tk.N + tk.S + tk.W + tk.E)
         self.reading_radio_but.grid(row=5, column=0, sticky=tk.N + tk.S + tk.W + tk.E)
         self.disable_state()
         if self.memory == "Holding Registers":
             self.active_state()
             self.write_but.grid(row=3, column=1, sticky=tk.E)
-            self.radio_write.set(0)
+            self.radio_write.set(False)
             self.write_radio_but.grid(row=4, column=1, sticky=tk.N + tk.S + tk.W + tk.E)
             self.writing_radio_but.grid(row=5, column=1, sticky=tk.N + tk.S + tk.W + tk.E)
         print("Обьект класса Register с именем " + self.var_name + " успешно создан")
@@ -354,13 +354,13 @@ class Register(Thread):
         self.mask_label.configure(state="normal")
 
     def disable_state(self):
-        self.mask_value.configure(state="disable")
-        self.mask_label.configure(state="disable")
+        self.mask_value.configure(state="disabled")
+        self.mask_label.configure(state="disabled")
 
     def checkbox_state(self):
         if (self.memory == "Input Registers") or \
                 (self.memory == "Holding Registers" and self.radio_read.get() == 1):
-            self.state = "disable"
+            self.state = "disabled"
         else:
             self.state = "normal"
 
