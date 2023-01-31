@@ -51,7 +51,7 @@ class MainWindow(tk.Tk):
         self.imglabel = tk.Label(self.frame, image=self.img)
         self.imglabel.place(x=0, y=0, anchor=tk.NW)
         # создание начальных элементов
-        self.my_font = Font(family="Bernard MT Condensed", size="16")
+        self.my_font = Font(family="Bernard MT Condensed", size=16)
         self.label_comport = ttk.Label(self.frame, text="COM port:")
         self.label_comport.configure(font=self.my_font, background="light blue")
         self.label_comport.place(x=15, y=17)
@@ -276,11 +276,11 @@ class Register(Thread):
                                              font="-weight bold")
         self.reading_radio_but = tk.Radiobutton(self.label_frame, text=chr(8734), variable=self.radio_read, value=1,
                                                 font="-weight bold", command=self.start_read_register)
-        self.mask_label = tk.Button(self.label_frame, image=self.pixel_virtual,
-                                    compound=tk.CENTER, width=74, height=16, font="Tahoma", command=self.write_mask_but)
+        self.mask_label = tk.Button(self.label_frame, image=self.pixel_virtual, compound=tk.CENTER,
+                                    width=74, height=16, font="Tahoma 13", command=self.write_mask_but)
         self.mask_value_text = tk.StringVar(self.label_frame)
         self.mask_value = tk.Entry(self.label_frame, textvariable=self.mask_value_text,
-                                   width=8, font="Tahoma")
+                                   width=7, font="Tahoma")
         self.write_but = tk.Button(self.label_frame, image=self.pixel_virtual, compound=tk.CENTER, width=74,
                                    height=30, text="WRITE", font="Tahoma", command=self.start_write_register)
         self.radio_write = tk.BooleanVar(self.label_frame)
